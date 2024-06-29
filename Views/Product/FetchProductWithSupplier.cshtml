@@ -1,0 +1,81 @@
+﻿@model IEnumerable<InventoryManagementSystem.Models.Product>
+<link rel="stylesheet" href="~/css/more.css" asp-append-version="true" />
+
+@{
+    ViewData["Title"] = "FetchProductWithSupplier";
+}
+<div>
+<h1>Fetch Product With Supplier</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+</div>
+<div class="table-responsive">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.ProductQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductCost)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.ProductCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplier.SupplierId)
+            </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Supplier.SupplierUserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Supplier.ContactNumber)
+                </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCost)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supplier.SupplierId)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Supplier.SupplierUserName)
+            </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Supplier.ContactNumber)
+                    </td>
+           
+        </tr>
+}
+    </tbody>
+</table>
+</div>

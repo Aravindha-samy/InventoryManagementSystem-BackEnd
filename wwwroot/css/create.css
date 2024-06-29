@@ -1,0 +1,73 @@
+﻿main {
+    background-image: url("/create.jpg") !important;
+   
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    
+}
+h1 {
+    text-align: center;
+    font-weight: 600;
+}
+
+
+.custom-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+}
+
+    .custom-form .form-group {
+        margin-bottom: 20px;
+    }
+  .form-control {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  /* Hover and focus styles for input boxes */
+  .form-control:hover {
+    border-color: #6c757d;
+  }
+
+  .form-control:focus {
+    border-color: #4d94ff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+    .custom-form label {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .custom-form input[type="text"],
+    .custom-form input[type="submit"], .custom-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box; /* Ensure padding and border are included in element's total width */
+    }
+
+    .custom-form input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+        .custom-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+    .custom-form .text-danger {
+        color: #dc3545;
+        font-size: 14px;
+    }
+

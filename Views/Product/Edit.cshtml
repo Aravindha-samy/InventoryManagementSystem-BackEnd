@@ -1,0 +1,93 @@
+﻿@model InventoryManagementSystem.Models.Product
+<link rel="stylesheet" href="~/css/edit.css" asp-append-version="true" />
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Product</h4>
+<hr />
+<div id="response">
+    @if (ViewData["Response"] != null)
+    {
+        <p>@ViewData["Response"]</p>
+    }
+</div>
+    
+   
+<form asp-action="Edit" method="get" class="d-flex justify-content-center align-items-center">
+    <div class="form-group" style="display:flex">
+        <input type="number" id="ProductId" name="id" class="form-control" placeholder="Enter Product ID" required>
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </div>
+</form>
+
+
+
+
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <form asp-action="Edit"  class="custom-form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>                                
+                <div class="row">
+                    <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="ProductId" class="control-label"></label>
+                        <input asp-for="ProductId" class="form-control"  />
+                        <span asp-validation-for="ProductId" class="text-danger"></span>
+                    </div>
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductDescribtion" class="control-label"></label>
+                <input asp-for="ProductDescribtion" class="form-control" />
+                <span asp-validation-for="ProductDescribtion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductQuantity" class="control-label"></label>
+                <input asp-for="ProductQuantity" class="form-control" />
+                <span asp-validation-for="ProductQuantity" class="text-danger"></span>
+            </div>
+                </div>
+
+                <div class="col-md-6">
+           
+            <div class="form-group">
+                <label asp-for="ProductCost" class="control-label"></label>
+                <input asp-for="ProductCost" class="form-control" />
+                <span asp-validation-for="ProductCost" class="text-danger"></span>
+            </div>
+        
+            <div class="form-group">
+                <label asp-for="ProductBarCode" class="control-label"></label>
+                <input asp-for="ProductBarCode" class="form-control" />
+                <span asp-validation-for="ProductBarCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductCategory" class="control-label"></label>
+                <input asp-for="ProductCategory" class="form-control" />
+                <span asp-validation-for="ProductCategory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SupplierId" class="control-label"></label>
+                <input asp-for="SupplierId" class="form-control" >
+                <span asp-validation-for="SupplierId" class="text-danger"></span>
+            </div>
+            </div>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

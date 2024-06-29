@@ -1,0 +1,97 @@
+﻿@model IEnumerable<InventoryManagementSystem.Models.Product>
+<link rel="stylesheet" href="~/css/FetchProductUsingAssociation.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/more.css" asp-append-version="true" />
+
+
+@{
+    ViewData["Title"] = "FetchProductUsingAssociation";
+}
+<div >
+    <h1 style="text-align:center" >Fetch Products Using Association</h1>
+    <div class="form-container">
+    @using (Html.BeginForm("FetchProductUsingAssociation", "Product", FormMethod.Get))
+    {
+        <div class="form-group">
+            @Html.TextBox("productName", null, new { @class = "form-control", placeholder = "Enter Product Name" })
+        </div>
+        <div class="form-group">
+            @Html.TextBox("quantity", null, new { @class = "form-control", placeholder = "Enter the Quantity Sold" })
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    }
+</div>
+</div>
+<br />
+<div class="table-responsive">
+      <table class="table">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>           
+            <th>
+                @Html.DisplayNameFor(model => model.ProductCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductQuantity)
+            </th>
+            <th>
+
+                Customer Id
+            </th>
+            <th>
+               Sales Id
+            </th>
+            <th>
+                Quantity Sold
+            </th>
+            <th>
+                Sales Date
+            </th>
+            
+            
+        </tr>
+    </thead>
+        <tbody>
+
+    @foreach(var s in Model)
+{
+        @foreach (var item in s.Sales)
+                {
+                    <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => s.ProductId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => s.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => s.ProductCategory)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => s.ProductQuantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerId)
+                    </td>
+           
+                     <td> 
+                        @Html.DisplayFor(modelItem => item.SalesId)
+                     </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuantitySold)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SalesDate)
+                    </td>
+                    </tr>
+                }
+
+            }
+    </tbody>
+      </table>
+</div>

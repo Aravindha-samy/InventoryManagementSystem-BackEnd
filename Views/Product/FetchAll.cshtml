@@ -1,0 +1,76 @@
+﻿@model IEnumerable<InventoryManagementSystem.Models.Product>
+<link rel="stylesheet" href="~/css/fetchall.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/more.css" asp-append-version="true" />
+
+@{
+    ViewData["Title"] = "FetchAll";
+}
+
+<h1>FetchAll</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="table-responsive">
+
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescribtion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductBarCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.ProductName
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescribtion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductBarCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierId)
+            </td>
+            <td >
+                        <a asp-action="Edit" asp-route-id="@item.ProductId" class="edit-button" style="text-decoration:none">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.ProductId" class="detail-button" style="text-decoration:none">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.ProductId" class="delete-button" style="text-decoration:none">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,51 @@
+﻿main {
+    background-image: url("/create.jpg") !important;
+    min-height: 100vh;
+    /* background-image: url(/inventory/mobile/top-banner-1x.jpg);*/
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+}
+
+
+/* Style for form labels */
+.control-label {
+    font-weight: bold;
+}
+
+/* Style for form inputs */
+.form-control {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* Style for submit button */
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding shadow for 3D effect */
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+/* Style for validation messages */
+.text-danger {
+    color: red;
+}

@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>   
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-auto">
+                        <img src="/logo.png" alt="Inventory Logo" asp-append-version="true" class="logo">
+                    </div>
+                    <div class="col text-center">
+                        <h1 class="head">Inventory Pro</h1>
+                    </div>
+                </div>         
+        @{
+        string? username = @HttpContextAccessor?.HttpContext?.Session.GetString("SessionUserName");
+        string? role = @HttpContextAccessor?.HttpContext?.Session.GetString("SessionRole");
+        }
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+             </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">            
+                    <ul>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-controller="Product" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-controller="Product" asp-action="Create">Create</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-controller="Product" asp-action="Details">Details</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Product" asp-action="Edit">Edit</a>
+                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-controller="Product" asp-action="Delete">Delete</a>
+                        </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" >
+                            More
+                        </a>
+                        <div class="dropdown-menu" >
+                            <a class="nav-link " asp-controller="Product" asp-action="FetchAll" >FetchAll</a>
+                            <a class="nav-link " asp-controller="Product" asp-action="FetchProductsUsingFilter" >FetchAll Filter</a>
+                            <a class="nav-link " asp-controller="Product" asp-action="FetchProductUsingAssociation" >FetchAllAssociation</a>
+                            <a class="nav-link " asp-controller="Product" asp-action="FetchProductWithSupplier">FetchAll Join</a>
+                        </div>
+                    </li>
+                     <li class="nav-item">
+                         @if(!string.IsNullOrEmpty(username))
+                         {
+                            <li class="nav-item dropdown">
+                                 <a class="nav-link dropdown-toggle" title="@username,@role" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" >
+                                        @username
+                                 </a>
+                                <div class="dropdown-menu">
+                                    <a class="nav-link " asp-controller="Login" asp-action="Logout">Logout</a>
+                                </div>
+                            </li>
+                         } 
+                         else{
+                                <a class="nav-link " asp-area="" asp-controller="Login" asp-action="Login"> Sign In</a>
+                        }
+                     </li>
+                        
+                    </ul>                    
+            </div>
+            </div>
+        </nav>
+    </header>
+            <div class="container-fluid">
+                <div class="row">
+                    <main role="main" class="col-md-12">
+               @RenderBody()
+            </main>
+    </div>
+  </div>
+  <footer>
+        <img src="/footerlogo.png" alt="Mobile Shop Logo" class="footerlogo">    <p>&copy; 2024 <span> Inventory Pro</span>. All rights reserved.</p>
+        <p>Developed by<strong><span style="color: #e7962c;"> Aravindha samy</span></strong></p>
+  </footer>     
+</body>
+@RenderSection("Scripts", required: false)
+</html>

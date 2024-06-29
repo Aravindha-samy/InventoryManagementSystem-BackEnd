@@ -1,0 +1,31 @@
+﻿
+<link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="welcome">
+<h1>Welcome to Our Inventory Management System</h1>
+</div>
+    <section class="overview">
+        <h2>Overview</h2>
+        <div class="overview-items">
+            <div class="item">
+            <h3>Total Product</h3>
+                <h2>@ViewBag.total</h2>
+            </div>
+            <div class="item">
+                <h3>Our Suppliers</h3>
+                <h2>@ViewBag.supplierCount</h2>
+            </div>
+            <div class="item">
+                <h3>Low Stock Items</h3>
+                <h2>@ViewBag.lowStock</h2>
+            </div>
+        </div>
+    </section>
+    
+    <section class="help">
+        <h2>Need Help?</h2>
+        <a href="#">Support Resources</a>
+    </section>
